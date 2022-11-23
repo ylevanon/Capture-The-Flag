@@ -60,6 +60,17 @@ public final class EntityFactory {
                 actionPeriod, animationPeriod, 0, 0);
     }
 
+    public static Laser createLaser(
+            String id,
+            Point position,
+            int actionPeriod,
+            int animationPeriod,
+            List<PImage> images)
+    {
+        return new Laser(id, position, images, 0, 0,
+                actionPeriod, animationPeriod, 0, 0);
+    }
+
     // need resource count, though it always starts at 0
     public static DudeNotFull createDudeNotFull(
             String id,
@@ -69,8 +80,12 @@ public final class EntityFactory {
             int resourceLimit,
             List<PImage> images)
     {
-        return new DudeNotFull(id, position, images, resourceLimit, 0,
+        DudeNotFull player = new DudeNotFull(id, position, images, resourceLimit, 0,
                 actionPeriod, animationPeriod, 0, 0);
+        DudeNotFull.setP1(player);
+        VirtualWorld.p1X = ((double)position.getX());
+        VirtualWorld.p1Y = ((double)position.getY());
+        return player;
     }
 
     // don't technically need resource count ... full
@@ -81,7 +96,11 @@ public final class EntityFactory {
             int animationPeriod,
             int resourceLimit,
             List<PImage> images) {
-        return new DudeFull(id, position, images, resourceLimit, 0,
+        DudeFull player = new DudeFull(id, position, images, resourceLimit, 0,
                 actionPeriod, animationPeriod, 0, 0);
+        DudeFull.setP2(player);
+        VirtualWorld.p2X = ((double)position.getX());
+        VirtualWorld.p2Y = ((double)position.getY());
+        return player;
     }
 }

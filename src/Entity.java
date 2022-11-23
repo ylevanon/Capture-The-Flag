@@ -57,6 +57,13 @@ public abstract class Entity
     // super
     public void setPosition(Point pos) {this.position = pos;}
 
+    public List<PImage> getImages() {
+        return images;
+    }
+
+    public void setImages(List<PImage> images) {
+        this.images = images;
+    }
 
     // Intermediate abstract class or interface DynamicEntity interface
     public int getAnimationPeriod()

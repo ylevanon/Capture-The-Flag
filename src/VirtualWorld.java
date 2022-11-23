@@ -8,14 +8,23 @@ import processing.core.*;
 
 public final class VirtualWorld extends PApplet
 {
+    public static double p1X;
+    public static double p1Y;
+
+    public static double p2X;
+    public static double p2Y;
+
     public static final int TIMER_ACTION_PERIOD = 100;
 
-    public static final int VIEW_WIDTH = 640;
-    public static final int VIEW_HEIGHT = 480;
+//    public static final int VIEW_WIDTH = 640;
+//    public static final int VIEW_HEIGHT = 480;
+
+    public static final int VIEW_WIDTH = 1280;
+    public static final int VIEW_HEIGHT = 960;
     public static final int TILE_WIDTH = 32;
     public static final int TILE_HEIGHT = 32;
-    public static final int WORLD_WIDTH_SCALE = 2;
-    public static final int WORLD_HEIGHT_SCALE = 2;
+    public static final int WORLD_WIDTH_SCALE = 1;
+    public static final int WORLD_HEIGHT_SCALE = 1;
 
     public static final int VIEW_COLS = VIEW_WIDTH / TILE_WIDTH;
     public static final int VIEW_ROWS = VIEW_HEIGHT / TILE_HEIGHT;
@@ -75,8 +84,43 @@ public final class VirtualWorld extends PApplet
             this.scheduler.updateOnTime(time);
             nextTime = time + TIMER_ACTION_PERIOD;
         }
-
         view.drawViewport();
+        DudeNotFull p1 = DudeNotFull.getP1();
+        DudeFull p2 = DudeFull.getP2();
+
+        switch (key) {
+            case 'w':
+                p1Y -= .5;
+                break;
+            case 's':
+                p1Y += .5;
+                break;
+            case 'a':
+                p1X -= .5;
+                p1.setImages(imageStore.getImageList(Dude.DUDE_KEY));
+                break;
+            case 'd':
+                p1X += .5;
+                p1.setImages(imageStore.getImageList(Sapling.SAPLING_KEY));
+                break;
+
+            case 'i':
+                p2Y -= .5;
+                break;
+            case 'k':
+                p2Y += .5;
+                break;
+            case 'j':
+                p2X -= .5;
+                break;
+            case 'l':
+                p2X += .5;
+                break;
+        }
+
+        p1.setPosition(new Point((int)p1X, (int)p1Y));
+        p2.setPosition(new Point((int)p2X, (int)p2Y));
+        key = ' ';
     }
 
     // Just for debugging and for P5
@@ -101,24 +145,22 @@ public final class VirtualWorld extends PApplet
 
     public void keyPressed() {
         if (key == CODED) {
-            int dx = 0;
-            int dy = 0;
-
             switch (keyCode) {
                 case UP:
-                    dy = -1;
+                    p2Y -= 1;
                     break;
                 case DOWN:
-                    dy = 1;
+                    p2Y += 1;
                     break;
                 case LEFT:
-                    dx = -1;
+                    p2X -= 1;
                     break;
                 case RIGHT:
-                    dx = 1;
+                    p2X += 1;
                     break;
             }
-            view.shiftView(dx, dy);
+            DudeFull p2 = DudeFull.getP2();
+            p2.setPosition(new Point((int)p1X, (int)p1Y));
         }
     }
 

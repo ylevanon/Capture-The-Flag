@@ -152,19 +152,31 @@ public final class WorldModel
     private boolean parseDude(
             String[] properties, ImageStore imageStore)
     {
-        if (properties.length == Dude.DUDE_NUM_PROPERTIES) {
+        if (properties.length == DudeNotFull.NOT_FULL_PROPERTIES) {
             Point pt = new Point(Integer.parseInt(properties[Dude.DUDE_COL]),
                     Integer.parseInt(properties[Dude.DUDE_ROW]));
             DudeNotFull entity = EntityFactory.createDudeNotFull(properties[Dude.DUDE_ID],
                     pt,
-                    Integer.parseInt(properties[Dude.DUDE_ACTION_PERIOD]),
-                    Integer.parseInt(properties[Dude.DUDE_ANIMATION_PERIOD]),
-                    Integer.parseInt(properties[Dude.DUDE_LIMIT]),
+                    Integer.parseInt(properties[DudeNotFull.NOT_FULL_ACTION_PERIOD]),
+                    Integer.parseInt(properties[DudeNotFull.NOT_FULL_ANIMATION_PERIOD]),
+                    Integer.parseInt(properties[DudeNotFull.NOT_FULL_LIMIT]),
+                    imageStore.getImageList(Dude.DUDE_KEY));
+            this.tryAddEntity(entity);
+        }
+        else if (properties.length == DudeFull.FULL_PROPERTIES)
+        {
+            Point pt = new Point(Integer.parseInt(properties[Dude.DUDE_COL]),
+                    Integer.parseInt(properties[Dude.DUDE_ROW]));
+            DudeFull entity = EntityFactory.createDudeFull(properties[Dude.DUDE_ID],
+                    pt,
+                    Integer.parseInt(properties[DudeFull.FULL_ACTION_PERIOD]),
+                    Integer.parseInt(properties[DudeFull.FULL_ANIMATION_PERIOD]),
+                    0,
                     imageStore.getImageList(Dude.DUDE_KEY));
             this.tryAddEntity(entity);
         }
 
-        return properties.length == Dude.DUDE_NUM_PROPERTIES;
+        return properties.length == DudeNotFull.NOT_FULL_PROPERTIES || properties.length == DudeFull.FULL_PROPERTIES;
     }
 
     private boolean parseFairy(
@@ -182,6 +194,23 @@ public final class WorldModel
         }
 
         return properties.length == Fairy.FAIRY_NUM_PROPERTIES;
+    }
+
+    private boolean parseLaser(
+            String[] properties, ImageStore imageStore)
+    {
+        if (properties.length == Laser.LASER_NUM_PROPERTIES) {
+            Point pt = new Point(Integer.parseInt(properties[Laser.LASER_COL]),
+                    Integer.parseInt(properties[Laser.LASER_ROW]));
+            Laser entity = EntityFactory.createLaser(properties[Laser.LASER_ID],
+                    pt,
+                    Integer.parseInt(properties[Laser.LASER_ACTION_PERIOD]),
+                    Integer.parseInt(properties[Laser.LASER_ANIMATION_PERIOD]),
+                    imageStore.getImageList(Fairy.FAIRY_KEY));
+            this.tryAddEntity(entity);
+        }
+
+        return properties.length == Laser.LASER_NUM_PROPERTIES;
     }
 
     private boolean parseTree(
@@ -258,6 +287,8 @@ public final class WorldModel
                     return parseTree(properties,imageStore);
                 case Sapling.SAPLING_KEY:
                     return parseSapling(properties, imageStore);
+                case Laser.LASER_KEY:
+                    return parseLaser(properties, imageStore);
             }
         }
 
