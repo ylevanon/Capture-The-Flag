@@ -1198,8 +1198,6 @@ background grass 36 29
 background flowers 37 29
 background flowers 38 29
 background flowers 39 29
-tree tree_35_27 35 27 256 1168 2
-tree tree_35_25 35 25 144 1266 2
 obstacle obstacle_13_7 13 7 1126
 fairy fairy_0_0 0 0 51 800
 tree tree_0_2 0 2 501 1289 2
@@ -1278,10 +1276,9 @@ tree tree_19_1 19 1 300 1154 1
 tree tree_8_1 8 1 106 1269 1
 obstacle obstacle_18_12 18 12 1190
 obstacle obstacle_35_21 35 21 1147
-tree tree_37_27 37 27 367 1195 2
 obstacle obstacle_18_11 18 11 1089
 obstacle obstacle_5_8 5 8 1097
-house house_36_26 36 26
+house house_15_26 15 26 800
 obstacle obstacle_0_8 0 8 1018
 obstacle obstacle_0_7 0 7 1141
 tree tree_25_4 25 4 198 1106 2
@@ -1300,14 +1297,13 @@ obstacle obstacle_19_12 19 12 1175
 obstacle obstacle_6_8 6 8 1038
 obstacle obstacle_16_9 16 9 1190
 obstacle obstacle_27_19 27 19 1116
-tree tree_37_26 37 26 55 1260 2
 obstacle obstacle_7_8 7 8 1156
 obstacle obstacle_19_13 19 13 1010
-house house_3_3 3 3
+house house_3_3 3 3 1000
 tree tree_27_1 27 1 384 1266 2
 obstacle obstacle_25_20 25 20 1156
 obstacle obstacle_2_8 2 8 1156
-house house_21_26 21 26
+house house_21_26 21 26 1000
 obstacle obstacle_6_7 6 7 1167
 obstacle obstacle_35_20 35 20 1093
 obstacle obstacle_30_21 30 21 1143
@@ -1325,11 +1321,9 @@ tree tree_24_5 24 5 328 1194 2
 tree tree_5_21 5 21 550 1278 1
 tree tree_26_26 26 26 339 1113 1
 tree tree_4_25 4 25 170 1038 1
-tree tree_36_25 36 25 124 1283 1
 obstacle obstacle_8_8 8 8 1017
 tree tree_8_3 8 3 406 1186 1
 obstacle obstacle_25_18 25 18 1125
-tree tree_37_25 37 25 186 1219 2
 obstacle obstacle_22_17 22 17 1052
 tree tree_23_4 23 4 419 1128 2
 obstacle obstacle_1_8 1 8 1041
@@ -1351,7 +1345,6 @@ obstacle obstacle_3_9 3 9 1199
 tree tree_17_4 17 4 111 1206 1
 obstacle obstacle_20_14 20 14 1140
 tree tree_24_4 24 4 182 1027 2
-tree tree_36_27 36 27 150 1230 2
 tree tree_26_9 26 9 594 1345 1
 obstacle obstacle_8_7 8 7 1101
 tree tree_11_14 11 14 173 1274 1

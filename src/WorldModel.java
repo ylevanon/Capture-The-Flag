@@ -253,6 +253,7 @@ public final class WorldModel
             Point pt = new Point(Integer.parseInt(properties[House.HOUSE_COL]),
                     Integer.parseInt(properties[House.HOUSE_ROW]));
             House entity = EntityFactory.createHouse(properties[House.HOUSE_ID], pt,
+                    Integer.parseInt(properties[House.HOUSE_ACTION_PERIOD]),
                     imageStore.getImageList(House.HOUSE_KEY));
             this.tryAddEntity(entity);
         }

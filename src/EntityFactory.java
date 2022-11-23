@@ -5,9 +5,9 @@ import java.util.List;
 public final class EntityFactory {
 
     public static House createHouse(
-            String id, Point position, List<PImage> images)
+            String id, Point position, int actionPeriod, List<PImage> images)
     {
-        return new House(id, position, images, 0, 0, 0,
+        return new House(id, position, images, 0, 0, actionPeriod,
                 0, 0, 0);
     }
 
